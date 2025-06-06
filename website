@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SanVrata - Lesena Vrata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #242526; /* SW 6258 Tricorn Black */
+            color: #e5e7eb; /* Gray 200 */
+        }
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+        .mySlides {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: kenburns 20s infinite;
+        }
+        
+        @keyframes kenburns {
+            0% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.05) translate(-2%, -2%); }
+            100% { transform: scale(1) translate(0, 0); }
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 2.5s;
+        }
+        @keyframes fade {
+            from {opacity: .5} 
+            to {opacity: 1}
+        }
+        .nav-link.active {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        .blur-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25vh;
+            background: linear-gradient(to top, #242526, transparent);
+            z-index: 20;
+            pointer-events: none; /* Allows scrolling through the overlay */
+        }
+    </style>
+</head>
+<body class="bg-[#242526] text-gray-200">
+
+    <div id="main-page-content">
+        <!-- Header and Navigation -->
+        <header class="fixed top-0 left-0 w-full bg-black/50 backdrop-blur-md z-50 border-b border-gray-800">
+            <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <!-- Logo: Replace the src with the path to your logo file -->
+                <a href="#">
+                    <img src="images/logo/logobela.png" alt="SanVrata Logo" class="h-12 w-auto">
+                </a>
+                <nav>
+                    <ul class="flex space-x-8 text-base text-gray-400">
+                        <li><a href="#gallery-section" class="nav-link transition-colors duration-300 hover:text-white">Galerija</a></li>
+                        <li><a href="#contact-section" class="nav-link transition-colors duration-300 hover:text-white">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Slideshow Section -->
+        <section id="slideshow-container" class="slideshow-container">
+            <div class="absolute inset-0 bg-black/50 z-10"></div>
+            <div class="absolute inset-0 z-20 flex flex-col items-center justify-center text-white text-center p-4">
+                <h2 class="text-5xl md:text-7xl font-bold mb-4">Brezčasen Dizajn.</h2>
+                <p class="text-xl md:text-2xl mb-8 max-w-2xl">Odkrijte lesena vrata, izdelana z neprimerljivo strastjo in natančnostjo za sodoben dom.</p>
+                <button onclick="document.getElementById('gallery-section').scrollIntoView()" class="bg-[#9F9F9F] text-black font-semibold py-3 px-6 rounded-full text-lg hover:bg-gray-400 transition-all duration-300 transform hover:scale-105">
+                    Oglejte si Naša Dela
+                </button>
+            </div>
+            <!-- Slides are dynamically injected here by JavaScript -->
+            <div class="blur-overlay"></div>
+        </section>
+
+        <main>
+            <!-- Gallery Section -->
+            <div id="gallery-section" class="pt-24 pb-12" style="background-color: #242526;">
+                 <div class="container mx-auto px-6 md:px-12">
+                    <h2 class="text-5xl font-bold text-center mb-16 text-white">Naši Projekti</h2>
+                    <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <!-- Project items will be dynamically inserted here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact-section" class="pt-24 pb-12" style="background-color: #242526;">
+                 <div class="container mx-auto px-6 md:px-12">
+                    <h2 class="text-4xl font-bold text-center mb-10 text-white">Kontaktirajte Nas</h2>
+                    <div class="max-w-4xl mx-auto">
+                        <div class="p-8 rounded-2xl">
+                             <div class="space-y-6 text-gray-300 text-center mb-8">
+                                 <p class="flex items-center justify-center text-lg"><svg class="w-6 h-6 mr-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Nova Gorica, Slovenija</p>
+                                 <p class="flex items-center justify-center text-lg"><svg class="w-6 h-6 mr-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> +1 (234) 567-890</p>
+                                 <p class="flex items-center justify-center text-lg"><svg class="w-6 h-6 mr-3 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> kontakt@sanvrata.com</p>
+                             </div>
+                             <div class="mt-8 rounded-lg overflow-hidden h-80">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11110.68984449836!2d13.639912642674258!3d45.95669921471377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477b0185e5b38f8d%3A0x73f3513813a8a30!2sCenter%2C%2C%205000%20Nova%20Gorica%2C%20Slovenia!5e0!3m2!1sen!2sus!4v1654527263521!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="filter grayscale(1) invert(1) contrast(1.2)"></iframe>
+                             </div>
+                             <div class="flex space-x-6 pt-8 justify-center">
+                                <a href="https://www.facebook.com" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a>
+                                <a href="https://www.instagram.com" target="_blank" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.48 2.525c.636-.247 1.363-.416 2.427-.465C9.93 2.013 10.284 2 12.315 2zm-1.161 1.545a3.917 3.917 0 01-2.402.465c-1.164.048-1.84.217-2.215.37a3.42 3.42 0 00-1.22.863 3.42 3.42 0 00-.863 1.22c-.154.375-.323 1.051-.37 2.215-.048 1.052-.06 1.37-.06 3.76s.012 2.708.06 3.76c.048 1.164.216 1.84.37 2.215a3.42 3.42 0 00.863 1.22 3.42 3.42 0 001.22.863c.375.154 1.051.323 2.215.37 1.052.048 1.37.06 3.76.06s2.708-.012 3.76-.06c1.164-.048 1.84-.216 2.215-.37a3.42 3.42 0 001.22-.863 3.42 3.42 0 00.863-1.22c.154-.375.323-1.051-.37-2.215.048-1.052.06-1.37.06-3.76s-.012-2.708-.06-3.76c-.048-1.164-.216-1.84-.37-2.215a3.42 3.42 0 00-.863-1.22 3.42 3.42 0 00-1.22-.863c-.375-.154-1.051-.323-2.215-.37-1.052-.048-1.37-.06-3.76-.06zM12 7.727a4.273 4.273 0 100 8.546 4.273 4.273 0 000-8.546zm0 6.82a2.545 2.545 0 110-5.09 2.545 2.545 0 010 5.09zm5.09-8.414a1.273 1.273 0 100-2.546 1.273 1.273 0 000 2.546z" clip-rule="evenodd" /></svg></a>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="bg-black mt-12 border-t border-gray-800">
+            <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+                <p>&copy; 2024 SanVrata. Vse pravice pridržane.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Project Detail Page -->
+    <div id="project-detail-page" class="hidden" style="background-color: #242526;">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="py-8">
+                <a href="#" id="back-to-main" class="inline-flex items-center text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Vsi Projekti
+                </a>
+            </div>
+            <h2 id="project-title" class="text-5xl font-bold text-center mb-4 text-white"></h2>
+            <p id="project-description" class="text-xl text-center text-gray-400 mb-16 max-w-3xl mx-auto"></p>
+            <div id="project-image-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-24">
+                <!-- Images will be injected here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // --- DATA ---
+        // This array holds all your project information.
+        // To add a new project:
+        // 1. Add a new object entry to this array.
+        // 2. Make sure your image paths are correct (e.g., 'images/your-project-folder/image.jpg').
+        const projects = [
+            {
+                id: 'elegant-oak',
+                title: 'VW Phateon',
+                description: 'največja mašina',
+                thumbnail: 'images/elegant-oak/2005_VW_Phaeton.jpg', // Path to the main image
+                images: [
+                    'images/elegant-oak/2005_VW_Phaeton.jpg', // Path to the first detail image
+                    'images/elegant-oak/photo2.jpg'
+                ]
+            },
+            {
+                id: 'modern-walnut',
+                title: 'Sodoben Oreh',
+                description: 'Eleganten in sodoben dizajn z minimalističnim pridihom in čistimi linijami.',
+                thumbnail: 'https://images.unsplash.com/photo-1556912173-3c43dd803a6a?q=80&w=2070&auto=format&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1556912173-3c43dd803a6a?q=80&w=2070&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1617103996237-7036d8e0647a?q=80&w=1974&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=2070&auto=format&fit=crop'
+                ]
+            },
+            {
+                id: 'rustic-pine',
+                title: 'Rustikalen Bor',
+                description: 'V prostor prinaša toplino in značaj s svojimi naravnimi grčami in robustno teksturo.',
+                thumbnail: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop',
+                images: [
+                    'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=2070&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1533090481720-856c6e7c6c5a?q=80&w=1974&auto=format&fit=crop',
+                    'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2070&auto=format&fit=crop'
+                ]
+            }
+        ];
+
+        // This function runs once the entire HTML document is loaded and ready.
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- ELEMENT REFERENCES ---
+            const mainPage = document.getElementById('main-page-content');
+            const projectPage = document.getElementById('project-detail-page');
+            const galleryGrid = document.getElementById('gallery-grid');
+            const slideshowContainer = document.getElementById('slideshow-container');
+            const projectTitleEl = document.getElementById('project-title');
+            const projectDescEl = document.getElementById('project-description');
+            const projectGridEl = document.getElementById('project-image-grid');
+            const backButton = document.getElementById('back-to-main');
+            const sections = document.querySelectorAll("#main-page-content main > div[id]");
+            const navLinks = document.querySelectorAll("nav .nav-link");
+
+            // --- SLIDESHOW LOGIC ---
+            let slideIndex = 0;
+            
+            function renderSlideshow() {
+                if (!slideshowContainer) return;
+                projects.forEach(project => {
+                    const slide = document.createElement('div');
+                    slide.className = 'mySlides fade';
+                    slide.innerHTML = `<img src="${project.thumbnail}" alt="${project.title}">`;
+                    slideshowContainer.appendChild(slide);
+                });
+            }
+
+            function showSlides() {
+                const slides = document.getElementsByClassName("mySlides");
+                if (slides.length === 0) return;
+                for (let i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 5000);
+            }
+
+            // --- PAGE & GALLERY LOGIC ---
+            function renderGallery() {
+                if (!galleryGrid) return;
+                galleryGrid.innerHTML = '';
+                projects.forEach((project) => {
+                    const item = document.createElement('div');
+                    item.className = 'gallery-item group cursor-pointer';
+                    item.dataset.projectId = project.id;
+                    item.innerHTML = `
+                        <div class="bg-black/20 rounded-2xl overflow-hidden">
+                           <img src="${project.thumbnail}" alt="${project.title}" class="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="pt-4">
+                            <h3 class="text-xl font-semibold text-white">${project.title}</h3>
+                            <p class="text-gray-300 mt-1">${project.description.split('.')[0] + '.'}</p> 
+                        </div>`;
+                    
+                    galleryGrid.appendChild(item);
+                });
+            }
+
+            function showProjectDetail(projectData) {
+                projectTitleEl.textContent = projectData.title;
+                projectDescEl.textContent = projectData.description;
+                projectGridEl.innerHTML = '';
+                projectData.images.forEach(imgSrc => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'bg-black/20 rounded-2xl shadow-sm overflow-hidden';
+                    imgContainer.innerHTML = `<img src="${imgSrc}" alt="${projectData.title}" class="w-full h-auto object-cover">`;
+                    projectGridEl.appendChild(imgContainer);
+                });
+                mainPage.classList.add('hidden');
+                projectPage.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+            
+            // --- EVENT LISTENERS ---
+            backButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                projectPage.classList.add('hidden');
+                mainPage.classList.remove('hidden');
+                const gallerySection = document.getElementById('gallery-section');
+                if (gallerySection) {
+                    const topPos = gallerySection.getBoundingClientRect().top + window.pageYOffset - 80;
+                    window.scrollTo({ top: topPos, behavior: 'smooth' });
+                }
+            });
+
+            // Use event delegation for gallery clicks
+            galleryGrid.addEventListener('click', (e) => {
+                const galleryItem = e.target.closest('.gallery-item');
+                if (galleryItem) {
+                    const projectId = galleryItem.dataset.projectId;
+                    const projectData = projects.find(p => p.id === projectId);
+                    if (projectData) {
+                        showProjectDetail(projectData);
+                    }
+                }
+            });
+
+            window.addEventListener("scroll", () => {
+                if (projectPage.classList.contains('hidden')) {
+                    let current = "";
+                    sections.forEach(section => {
+                        const sectionTop = section.offsetTop;
+                        if (window.pageYOffset >= sectionTop - 100) {
+                            current = section.getAttribute("id");
+                        }
+                    });
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href") === `#${current}`) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+
+            // --- INITIALIZATION ---
+            renderGallery();
+            renderSlideshow();
+            if (projects.length > 0) {
+                showSlides();
+            }
+        });
+    </script>
+
+</body>
+</html>
